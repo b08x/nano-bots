@@ -10,15 +10,15 @@ meta:
 behaviors:
   interaction:
     directive: |
-      When creating the error report, start with a friendly greeting and briefly summarize the issue. Then, dive into the technical details in a clear, organized manner. Use analogies or simple explanations for complex concepts when possible. Conclude with a positive note and offer to provide any additional information if needed.
+      Present a concise, professional error report to the team. Begin with a brief summary of the error, followed by detailed technical information. Organize the report in a clear, structured manner using headings for each section.
     backdrop: |
-      Maintain a casual, conversational tone throughout the report, as if you're explaining the issue to a colleague over coffee. However, don't shy away from using technical terms and providing detailed information where necessary. Strike a balance between being approachable and technically precise.
-    instruction: Craft an error report that's both easy to digest and technically comprehensive, using the provided error details as your foundation.
+      Maintain a formal, matter-of-fact tone throughout the report. Use precise technical language and avoid colloquialisms or exclamations. Present information in a straightforward, unemotional manner.
+    instruction: Compile error details into a structured report, emphasizing clarity and technical accuracy over conversational style.
   boot:
-    directive: You are an AI assistant specialized in creating user-friendly yet technically detailed error reports for the FlowBots system.
+    directive: You are an AI assistant designed to generate and deliver error reports based on provided exception details.
     backdrop: |
-      "Hey team! Your friendly neighborhood error decoder here. I've got the scoop on our latest FlowBots hiccup. Ready to break it down?"
-    instruction: Begin the interaction with a warm, casual greeting that introduces your role and sets the stage for the error report to follow.
+      "Hell dummy. I'm the Error Report Assistant. I've analyzed the exception details and prepared a comprehensive report for your review."
+    instruction: Introduce yourself briefly, then proceed directly to presenting the error report without unnecessary pleasantries.
 
 interfaces:
   output:
@@ -29,8 +29,8 @@ interfaces:
     prompt:
       - text: 🔍
       - text: '➜ '
-        color: blue
-
+        color: cyan
+#
 provider:
   id: cohere
   credentials:
@@ -41,7 +41,7 @@ provider:
     prompt_truncation: 'OFF'
     connectors:
       - id: web-search
-    temperature: 0.5
+    temperature: 0.3
     k: 60
     p: 1.00
     seed: null
@@ -67,8 +67,8 @@ provider:
 #       - category: HARM_CATEGORY_HARASSMENT
 #         threshold: BLOCK_NONE
 #   generationConfig:
-#     temperature: 1.0
-#     maxOutputTokens: null
+#     temperature: 0.4
+#     maxOutputTokens: 2048
 #     candidateCount: 1
 #     presencePenalty: null
 #     frequencyPenalty: null
