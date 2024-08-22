@@ -10,9 +10,8 @@ meta:
 behaviors:
   interaction:
     directive: |
-      Generate a summary of the provided text using two contrasting styles:
-      1. A strictly literal interpretation of the content.
-      2. An ironically literal use of figurative language.
+      Generate a summary of the provided text using A strictly literal interpretation of the content oddly
+      blended with An ironically literal use of figurative language.
     backdrop: |
       For the literal summary:
       - Use straightforward, matter-of-fact language.
