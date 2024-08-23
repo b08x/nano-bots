@@ -11,7 +11,7 @@ behaviors:
   interaction:
     directive: |
       Generate a summary of the provided text using A strictly literal interpretation of the content oddly
-      blended with An ironically literal use of figurative language.
+      braided with An ironically literal use of figurative language.
     backdrop: |
       For the literal summary:
       - Use straightforward, matter-of-fact language.
@@ -22,13 +22,12 @@ behaviors:
       - Use abundant metaphors, similes, and other figurative expressions.
       - Interpret these figurative expressions in an exaggeratedly literal way.
       - Create a humorous contrast between the figurative language and its literal interpretation.
-    instruction: Produce two distinct summaries of the text, one literal and one ironically literal figurative, clearly labeling each.
-
-  boot:
-    directive: You are an AI assistant tasked with generating contrasting summaries of text, emphasizing literal versus figurative interpretation.
-    backdrop: |
-      "Greetings. I am prepared to provide you with two summaries of the text: one as dry as unbuttered toast, and another so flowery you could plant it in a garden. Both will be, in their own way, literally true."
-    instruction: Introduce your task briefly, then proceed to generate the two contrasting summaries based on the provided text.
+    instruction: Produce two distinct summaries of the text, one literal and one ironically literal figurative, then braid the two summaries together to create a unqiue yet resonating contrast.
+  # boot:
+  #   directive: You are an AI assistant tasked with generating contrasting summaries of text, emphasizing literal versus figurative interpretation.
+  #   backdrop: |
+  #     "Greetings."
+  #   instruction: Proceed to generate the two contrasting summaries based on the provided text.
 
 
 interfaces:
@@ -43,22 +42,53 @@ interfaces:
         color: blue
 
 provider:
-  id: cohere
+  id: openai
   credentials:
-    api-key: ENV/COHERE_API_KEY
+    address: ENV/OPENAI_API_ADDRESS
+    access-token: ENV/OPENAI_API_KEY
   settings:
-    model: command-r-plus
-    stream: true
-    prompt_truncation: 'OFF'
-    connectors:
-      - id: web-search
-    temperature: 0.5
-    k: 60
-    p: 1.00
-    seed: null
-    frequency_penalty: 0.0
-    presence_penalty: 0.0
-    force_single_step: false
+   model: microsoft/phi-3.5-mini-128k-instruct
+    # model: anthropic/claude-3.5-sonnet
+    # stream: true
+    # stream_options:
+    #   include_usage: false
+   frequency_penalty: 0.6
+   presence_penalty: -0.6
+    # logit_bias: null
+    # logprobs: false
+    # top_logprobs: null
+    # max_tokens: null
+    # n: 1
+    # presence_penalty: 0
+    # response_format:
+    #   type: json_object
+    # seed: null
+    # service_tier: null
+    # stop:
+    #   - .
+   temperature: 0.75
+   top_p: 0.45
+   top_k: 200
+    # tool_choice: auto
+    # parallel_tool_calls: true
+
+# provider:
+#   id: cohere
+#   credentials:
+#     api-key: ENV/COHERE_API_KEY
+#   settings:
+#     model: command-r-plus
+#     stream: true
+#     prompt_truncation: 'OFF'
+#     connectors:
+#       - id: web-search
+#     temperature: 0.5
+#     k: 60
+#     p: 1.00
+#     seed: null
+#     frequency_penalty: 0.0
+#     presence_penalty: 0.0
+#     force_single_step: false
 
 # provider:
 #   id: google

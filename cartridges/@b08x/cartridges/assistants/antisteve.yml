@@ -12,7 +12,7 @@ behaviors:
     directive: |
       As AntiSteve, focus on Natural Language Processing aspects and Semiotic features. Act as a pragmatic devil's advocate, challenging ideas constructively.
     backdrop: |
-      Use a dry wit in your communication, while maintaining a casual yet professional tone. Incorporate NLP and Semiotic terminology along with Agile Scrum language.
+      Use a dry wit in your communication, while maintaining a casual yet professional tone. Incorporate NLP and Semiotic terminology along with relavant Large Language Model analogies.
     instruction: Analyze others' ideas critically, ask probing questions, and offer alternative perspectives focused on NLP and Semiotics.
 
   boot:
@@ -33,18 +33,18 @@ interfaces:
       - text: '➜ '
         color: blue
 
-# provider:
-#   id: openai
-#   credentials:
-#     address: ENV/OPENAI_API_ADDRESS
-#     access-token: ENV/OPENAI_API_KEY
-#   settings:
-#     user: ENV/NANO_BOTS_END_USER
-#     model: claude-3.5-sonnet
+provider:
+  id: openai
+  credentials:
+    address: ENV/OPENAI_API_ADDRESS
+    access-token: ENV/OPENAI_API_KEY
+  settings:
+    model: microsoft/phi-3.5-mini-128k-instruct
     # stream: true
     # stream_options:
     #   include_usage: false
-    # frequency_penalty: 0
+    frequency_penalty: 0.6
+    presence_penalty: -0.6
     # logit_bias: null
     # logprobs: false
     # top_logprobs: null
@@ -57,8 +57,9 @@ interfaces:
     # service_tier: null
     # stop:
     #   - .
-    # temperature: 1
-    # top_p: 1
+    temperature: 0.45
+    top_p: 0.45
+    top_k: 200
     # tool_choice: auto
     # parallel_tool_calls: true
 
@@ -80,28 +81,28 @@ interfaces:
 #     presence_penalty: 0.0
 #     force_single_step: false
 
-provider:
-  id: google
-  credentials:
-    service: generative-language-api
-    api-key: ENV/GOOGLE_API_KEY
-  options:
-    model: gemini-1.5-pro
-  settings:
-    safetySettings:
-      - category: HARM_CATEGORY_DANGEROUS_CONTENT
-        threshold: BLOCK_NONE
-      - category: HARM_CATEGORY_SEXUALLY_EXPLICIT
-        threshold: BLOCK_NONE
-      - category: HARM_CATEGORY_HATE_SPEECH
-        threshold: BLOCK_NONE
-      - category: HARM_CATEGORY_HARASSMENT
-        threshold: BLOCK_NONE
-  generationConfig:
-    temperature: 1.0
-    maxOutputTokens: null
-    candidateCount: 1
-    presencePenalty: null
-    frequencyPenalty: null
-    # topK: 60
-    # topP: 1.0
+# provider:
+#   id: google
+#   credentials:
+#     service: generative-language-api
+#     api-key: ENV/GOOGLE_API_KEY
+#   options:
+#     model: gemini-1.5-pro
+#   settings:
+#     safetySettings:
+#       - category: HARM_CATEGORY_DANGEROUS_CONTENT
+#         threshold: BLOCK_NONE
+#       - category: HARM_CATEGORY_SEXUALLY_EXPLICIT
+#         threshold: BLOCK_NONE
+#       - category: HARM_CATEGORY_HATE_SPEECH
+#         threshold: BLOCK_NONE
+#       - category: HARM_CATEGORY_HARASSMENT
+#         threshold: BLOCK_NONE
+#   generationConfig:
+#     temperature: 1.0
+#     maxOutputTokens: null
+#     candidateCount: 1
+#     presencePenalty: null
+#     frequencyPenalty: null
+#     # topK: 60
+#     # topP: 1.0
