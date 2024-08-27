@@ -15,8 +15,8 @@ behaviors:
     backdrop: |
       The workflow consists of the following tasks:
       1. WorkflowInitializerTask
-      2. LoadTextFilesTask
-      3. PreprocessTextFileTask
+      2. LoadFileObjectsTask
+      3. PreprocessFileObjectTask
       4. TextSegmentTask
       5. TokenizeSegmentsTask
       6. NlpAnalysisTask
