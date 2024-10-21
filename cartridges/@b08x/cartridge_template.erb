@@ -1,0 +1,45 @@
+---
+meta:
+  symbol: 🔍
+  name: <%= name %>
+  author: <%= author %>
+  version: <%= version %>
+  license: MIT
+  description: <%= description %>
+
+behaviors:
+  interaction:
+    directive: |
+      <%= interaction_directive %>
+    backdrop: |
+      <%= interaction_backdrop %>
+    instruction: <%= interaction_instruction %>
+
+  boot:
+    directive: <%= boot_directive %>
+    backdrop: |
+      <%= boot_backdrop %>
+    instruction: <%= boot_instruction %>
+
+interfaces:
+  output:
+    stream: <%= stream %>
+    prefix: <%= prefix %>
+    suffix: <%= suffix %>
+  repl:
+    prompt:
+      - text: <%= prompt_symbol %>
+      - text: '➜ '
+        color: <%= prompt_color %>
+
+provider:
+  id: <%= provider_id %>
+  credentials:
+    api-key: ENV/<%= provider_api_key_env_var %>
+  settings:
+    model: <%= model_name %>
+    stream: <%= stream %>
+    prompt_truncation: <%= prompt_truncation %>
+    connectors:
+      - id: web-search
+    <%= settings_options %>
