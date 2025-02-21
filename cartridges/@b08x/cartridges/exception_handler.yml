@@ -30,77 +30,21 @@ interfaces:
       - text: 🔍
       - text: '➜ '
         color: cyan
-#
-# provider:
-#   id: cohere
-#   credentials:
-#     api-key: ENV/COHERE_API_KEY
-#   settings:
-#     model: command-r-plus
-#     stream: true
-#     prompt_truncation: 'OFF'
-#     connectors:
-#       - id: web-search
-#     temperature: 0.3
-#     k: 60
-#     p: 1.00
-#     seed: null
-#     frequency_penalty: 0.0
-#     presence_penalty: 0.0
-#     force_single_step: false
 
 provider:
-  id: google
+  id: cohere
   credentials:
-    service: generative-language-api
-    api-key: ENV/GOOGLE_API_KEY
-  options:
-    model: gemini-1.5-pro
+    api-key: ENV/COHERE_API_KEY
   settings:
-    safetySettings:
-      - category: HARM_CATEGORY_DANGEROUS_CONTENT
-        threshold: BLOCK_NONE
-      - category: HARM_CATEGORY_SEXUALLY_EXPLICIT
-        threshold: BLOCK_NONE
-      - category: HARM_CATEGORY_HATE_SPEECH
-        threshold: BLOCK_NONE
-      - category: HARM_CATEGORY_HARASSMENT
-        threshold: BLOCK_NONE
-  generationConfig:
-    temperature: 0.4
-    maxOutputTokens: 2048
-    candidateCount: 1
-    presencePenalty: null
-    frequencyPenalty: null
-    # topK: 60
-    # topP: 1.0
-# provider:
-#   id: openai
-#   credentials:
-#     address: ENV/OPENAI_API_ADDRESS
-#     access-token: ENV/OPENAI_API_KEY
-#   settings:
-#    model: microsoft/phi-3.5-mini-128k-instruct
-#     # model: anthropic/claude-3.5-sonnet
-#     # stream: true
-#     # stream_options:
-#     #   include_usage: false
-#    frequency_penalty: 0.6
-#    presence_penalty: -0.6
-#     # logit_bias: null
-#     # logprobs: false
-#     # top_logprobs: null
-#     # max_tokens: null
-#     # n: 1
-#     # presence_penalty: 0
-#     # response_format:
-#     #   type: json_object
-#     # seed: null
-#     # service_tier: null
-#     # stop:
-#     #   - .
-#    temperature: 0.75
-#    top_p: 0.45
-#    top_k: 200
-#     # tool_choice: auto
-#     # parallel_tool_calls: true
+    model: command-r-plus
+    stream: true
+    prompt_truncation: 'OFF'
+    connectors:
+      - id: web-search
+    temperature: 0.3
+    k: 60
+    p: 1.00
+    seed: null
+    frequency_penalty: 0.0
+    presence_penalty: 0.0
+    force_single_step: false
